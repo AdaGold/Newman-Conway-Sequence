@@ -1,6 +1,8 @@
 def newman_conway(num):
-    """ Returns a list of the Newman Conway numbers for the given value.
-        Time Complexity: ?
-        Space Complexity: ?
-    """
-    pass
+   
+    if num <= 0:
+        raise ValueError("invalid input")
+    sequence = [1,1]
+    for i in range(2,num):
+        sequence.append(sequence[sequence[i-1]-1]+sequence[i-sequence[i-1]])
+    return ' '.join(str(i) for i in sequence[:num])
